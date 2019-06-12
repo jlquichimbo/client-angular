@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./inicio.component.css']
 })
 export class InicioComponent implements OnInit {
+  public titulo: string;
 
-  constructor() { }
+  constructor() {
+    this.titulo = 'Sistema Automatizado de control y apertura de puertas';
+   }
 
   ngOnInit() {
+    console.log('!Componente Inicio cargado!');
   }
 
 }
