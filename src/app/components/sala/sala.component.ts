@@ -48,7 +48,7 @@ export class SalaComponent implements OnInit {
 
   editarSala(sala: Sala) {
     this.opcionBoton = 'Editar';
-    this.salaService.salaSeleccionada = sala;
+    this.salaService.salaSelected = sala;
   }
 
   eliminarSala(idSala: string) {

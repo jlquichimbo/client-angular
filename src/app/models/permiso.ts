@@ -1,6 +1,6 @@
 export class Permiso {
-    constructor(id = '', day = '', start_time = '', end_time = '', rol = '', state = true){
-        this._id = id;
+    constructor(_id = '', day = '', start_time = '', end_time = '', rol = '', state = true){
+        this._id = _id;
         this.day = day;
         this.start_time = start_time;
         this.end_time = end_time;
@@ -8,6 +8,7 @@ export class Permiso {
         this.state = state;
 
     }
+// tslint:disable-next-line: variable-name
     _id: string;
     day: string;
     start_time: string;

@@ -20,7 +20,7 @@ export class RolService {
   }
 
   listarRoles(token): Observable<any> {
-    const headers = new HttpHeaders().set('Content-type', 'aplication/json').set('token', token);
+    const headers = new HttpHeaders().set('Content-Type', 'application/json').set('token', token);
     return this.http.get(this.url + 'rol', {headers: headers});
   }
 
@@ -31,7 +31,7 @@ export class RolService {
     return this.http.post(this.url + 'rol', params, {headers});
   }
 
-  actualizarRol(token, rol:Rol): Observable<any>{
+  actualizarRol(token, rol: Rol): Observable<any>{
     const params = JSON.stringify(rol);
     const headers = new HttpHeaders().set('Content-Type', 'application/json').set('token', token);
 

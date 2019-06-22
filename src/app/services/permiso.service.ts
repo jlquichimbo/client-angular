@@ -29,14 +29,23 @@ export class PermisoService {
   guardarPermiso(token, permiso: Permiso): Observable<any> {
     console.log('Guardando permiso');
     const params = JSON.stringify(permiso);
-    const headers = new HttpHeaders().set('Content-type', 'aplication/json').set('token', token);
+    const headers = new HttpHeaders().set('Content-Type', 'application/json').set('token', token);
 
     return this.http.post(this.url + 'permiso', params, {headers});
   }
 
+  actualizarPermiso(token, permiso: Permiso): Observable<any> {
+    console.log('Actualizando permiso');
+    const params = JSON.stringify(permiso);
+    const headers = new HttpHeaders().set('Content-Type', 'application/json').set('token', token);
+
+    return this.http.put(`${this.url}permiso/${permiso._id}`, params, {headers});
+
+  }
+
   eliminarPermiso(token, idPermiso): Observable<any> {
     console.log('Borrando permiso');
-    const headers = new HttpHeaders().set('Content-type', 'aplication/json').set('token', token);
+    const headers = new HttpHeaders().set('Content-Type', 'application/json').set('token', token);
 
     return this.http.delete(`${this.url}permiso/${idPermiso}`, {headers});
   }
