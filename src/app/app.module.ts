@@ -10,7 +10,8 @@ import { LoginComponent } from './components/login/login.component';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { RolComponent } from './components/rol/rol.component';
 import { UserComponent } from './components/user/user.component';
-import { SalaComponent } from './sala/sala.component';
+import { SalaComponent } from './components/sala/sala.component';
+import { PermisoComponent } from './components/permiso/permiso.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { SalaComponent } from './sala/sala.component';
     InicioComponent,
     RolComponent,
     UserComponent,
-    SalaComponent
+    SalaComponent,
+    PermisoComponent
   ],
   imports: [
     BrowserModule,
