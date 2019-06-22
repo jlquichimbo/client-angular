@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { Rol } from './models/rol';
+import { UserComponent } from './components/user/user.component';
 
 // Rutas de navegacion
 const routes: Routes = [
@@ -11,6 +12,7 @@ const routes: Routes = [
   {path: 'inicio', component: InicioComponent},
   {path: 'login', component: LoginComponent},
   {path: 'roles', component: RolComponent},
+  {path: 'usuarios', component: UserComponent},
   {path: '**', component: InicioComponent},
 ];
 

@@ -1,0 +1,97 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+      <form #registrarUsuarioForm = 'ngForm' (ngSubmit) ="guardarUsuario(registrarUsuarioForm)">
+        <!-- Fila Nombres -->
+        <div class="form-row">
+          <input type="hidden" name="_id">
+          <div class="form-group col-md-6">
+            <label class="font-weight-bold">Primer Nombre</label>
+            <input type="text" name="firstName" class="form-control" #firstName="ngModel" [(ngModel)]="usuarioService.usuarioSeleccionado.firstName" required>
+            <span *ngIf="!firstName.valid && firstName.touched">El primer nombre es obligatorio!</span>
+          </div>
+          <div class="form-group col-md-6">
+            <label class="font-weight-bold">Segundo Nombre</label>
+            <input type="text" name="secondName" class="form-control" #secondName="ngModel" [(ngModel)]="usuarioService.usuarioSeleccionado.secondName"  required>
+            <span *ngIf="!secondName.valid && secondName.touched">El segundo nombre es obligatorio!</span>
+          </div>
+        </div>
+
+        <!-- Fila Apellidos -->
+        <div class="form-row">
+            <div class="form-group col-md-6">
+              <label class="font-weight-bold">Primer Apellido</label>
+              <input type="text" name="firstSurname" class="form-control" #firstSurname="ngModel" [(ngModel)]="usuarioService.usuarioSeleccionado.firstSurname" required>
+              <span *ngIf="!firstSurname.valid && firstSurname.touched">El primer apellido es obligatorio!</span>
+            </div>
+            <div class="form-group col-md-6">
+              <label class="font-weight-bold">Segundo Apellido</label>
+              <input type="text" name="secondSurname" class="form-control" #secondSurname="ngModel" [(ngModel)]="usuarioService.usuarioSeleccionado.secondSurname" required>
+              <span *ngIf="!secondSurname.valid && secondSurname.touched">El segundo apellido es obligatorio!</span>
+            </div>
+          </div>
+
+        <!-- Fila Usuario Email -->
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label class="font-weight-bold">Nombre de usuario</label>
+            <input type="text" name="username" class="form-control"  #username="ngModel" [(ngModel)]="usuarioService.usuarioSeleccionado.username" required>
+            <span *ngIf="!username.valid && username.touched">El usuario es obligatorio!</span>
+          </div>
+          <div class="form-group col-md-6">
+            <label class="font-weight-bold">Email</label>
+            <input type="email" name="email" class="form-control"  #email="ngModel" [(ngModel)]="usuarioService.usuarioSeleccionado.email" required>
+            <span *ngIf="!email.valid && email.touched">El email es obligatorio!</span>
+          </div>
+        </div>
+
+          <!-- Fila Password Rol-->
+        <div class="form-row">
+            <div class="form-group col-md-6">
+              <label class="font-weight-bold">Contrasena</label>
+              <input type="password" name="password" class="form-control"  #password="ngModel" [(ngModel)]="usuarioService.usuarioSeleccionado.password" required>
+              <span *ngIf="!password.valid && password.touched">La contrasena es obligatorio!</span>
+            </div>
+            <div class="form-group col-md-6">
+              <label class="font-weight-bold">Rol</label>
+              <select name="rol" class="form-control"  #rol="ngModel" [(ngModel)]="usuarioService.usuarioSeleccionado.rol" >
+                <option *ngFor="let rol of rolService.roles" value="{{ rol._id }}">{{ rol.name }} </option>
+              </select>
+              <span *ngIf="!rol.valid && rol.touched">Debes seleccionar un rol!</span>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="!registrarUsuarioForm.form.valid" >Registrarse</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- LISTADO DE USUARIOS -->
+  <hr>
+  <div class="row">
+    <div class="col-md-5 mx-auto">
+      <h2 class="h1 font-weight-bold py-3 text-center">Listado de usuarios</h2>
+      <table class="table">
+        <thead class="bg-primary">
+          <tr>
+            <th scope="col" class="text-white">Nombre</th>
+            <th scope="col" class="text-white">Apellido</th>
+            <th scope="col" class="text-white">Username</th>
+            <th scope="col" class="text-white">Operaciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let usuario of usuarioService.usuarios">
+            <td>{{ usuario.firstName }} {{ usuario.secondName }} </td>
+            <td>{{ usuario.firstSurname }} {{ usuario.secondSurname }} </td>
+            <td>{{ usuario.username }} </td>
+            <td>
+                <a class="btn btn-outline-primary mr-2" (click)="eliminarUsuario(usuario._id)">
+                    <i class="far fa-trash-alt text-danger"></i>
+                </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
