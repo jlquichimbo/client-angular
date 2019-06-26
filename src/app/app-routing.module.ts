@@ -1,3 +1,4 @@
+import { AccesoComponent } from './components/acceso/acceso.component';
 import { PermisoComponent } from './components/permiso/permiso.component';
 import { UserComponent } from './components/user/user.component';
 import { NgModule } from '@angular/core';
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path: 'usuarios', component: UserComponent},
   {path: 'salas', component: SalaComponent},
   {path: 'permisos', component: PermisoComponent},
+  {path: 'accesos', component: AccesoComponent},
   {path: '**', component: InicioComponent}
 ];
 

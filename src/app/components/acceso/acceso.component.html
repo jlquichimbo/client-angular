@@ -1,0 +1,42 @@
+<div class="container-fluid">
+  <div class="row">
+    <!-- <div class="offset-md-3 col-md-3">
+      <h2 class="h1 font-weight-bold text-center py-3">Registrar Acceso</h2>
+      <form #registrarAccesoForm="ngForm" (ngSubmit)="guardarAcceso(registrarAccesoForm)">
+        <input type="hidden" name="_id" >
+        <div class="form-group col-md-8 pl-0">
+          <label for="" class="fornt-weight-bold">Usuario</label>
+          <input type="text" class="form-control" name="name"required>
+        </div>
+        <span >El nombre es obligatorio!</span>
+        <button type="submit" class="btn btn-primary" [disabled]="!registrarAccesoForm.form.valid">Registrar</button>
+      </form>
+    </div> -->
+
+    <div class="col-md-12">
+      <h2 class="h1 font-weight-bold text-center py-3">Listado de accesos</h2>
+      <table class="table">
+        <thead class="bg-primary">
+          <tr>
+            <th scope="col" class="text-white">Usuario</th>
+            <th scope="col" class="text-white">Sala</th>
+            <th scope="col" class="text-white">Acceso</th>
+            <th scope="col" class="text-white">Fecha</th>
+            <th scope="col" class="text-white">Hora</th>
+            <th scope="col" class="text-white">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let acceso of accesoService.accesos">
+            <td>{{ acceso.user }} </td>
+            <td>{{ acceso.sala }} </td>
+            <td>{{ acceso.typeAccess }} </td>
+            <td>{{ acceso.date }} </td>
+            <td>{{ acceso.hour }} </td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
