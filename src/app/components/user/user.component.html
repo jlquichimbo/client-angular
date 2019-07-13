@@ -76,6 +76,7 @@
             <th scope="col" class="text-white">Nombre</th>
             <th scope="col" class="text-white">Apellido</th>
             <th scope="col" class="text-white">Username</th>
+            <th scope="col" class="text-white">Email</th>
             <th scope="col" class="text-white">Operaciones</th>
           </tr>
         </thead>
@@ -84,6 +85,7 @@
             <td>{{ usuario.firstName }} {{ usuario.secondName }} </td>
             <td>{{ usuario.firstSurname }} {{ usuario.secondSurname }} </td>
             <td>{{ usuario.username }} </td>
+            <td>{{ usuario.email }} </td>
             <td>
                 <a class="btn btn-outline-primary mr-2" (click)="eliminarUsuario(usuario._id)">
                     <i class="far fa-trash-alt text-danger"></i>

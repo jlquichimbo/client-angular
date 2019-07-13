@@ -1,3 +1,4 @@
+import { UsuarioGuard } from './services/usuario.guard';
 import { AccesoComponent } from './components/acceso/acceso.component';
 import { PermisoComponent } from './components/permiso/permiso.component';
 import { UserComponent } from './components/user/user.component';
@@ -13,10 +14,10 @@ const routes: Routes = [
   {path: 'inicio', component: InicioComponent},
   {path: 'login', component: LoginComponent},
   {path: 'roles', component: RolComponent},
-  {path: 'usuarios', component: UserComponent},
-  {path: 'salas', component: SalaComponent},
-  {path: 'permisos', component: PermisoComponent},
-  {path: 'accesos', component: AccesoComponent},
+  {path: 'usuarios', component: UserComponent, canActivate: [UsuarioGuard]},
+  {path: 'salas', component: SalaComponent, canActivate: [UsuarioGuard]},
+  {path: 'permisos', component: PermisoComponent, canActivate: [UsuarioGuard]},
+  {path: 'accesos', component: AccesoComponent, canActivate: [UsuarioGuard]},
   {path: '**', component: InicioComponent}
 ];
 

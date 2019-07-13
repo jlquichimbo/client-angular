@@ -1,3 +1,5 @@
+import { UsuarioGuard } from './services/usuario.guard';
+import { UserService } from './services/user.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule} from '@angular/forms';
@@ -31,7 +33,7 @@ import { AccesoComponent } from './components/acceso/acceso.component';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [UserService, UsuarioGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
